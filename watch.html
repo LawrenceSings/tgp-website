@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch — The Gathering Place</title>
+<meta name="description" content="Watch sermons, TGP LIVE gatherings, and Petition prayer calls from The Gathering Place — and download free resources like the BREATHE fasting guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="icon-gold.png">
+</head>
+<body>
+
+<div class="announce">
+  <strong>BREATHE</strong> — a free six-day fasting journey.<a href="#resources">Download the devotional →</a>
+  <button class="dismiss" aria-label="Dismiss" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+    </a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links">
+      <a href="sundays.html">Sundays</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch.html" class="active">Watch</a>
+      <a class="im-new" href="plan-your-visit.html">I'm New</a>
+      <a class="btn-give" href="give.html">Give</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero short">
+  <svg class="gmark" viewBox="0 0 100 112" aria-hidden="true">
+    <circle cx="50" cy="50" r="37" fill="none" stroke="#E1AB65" stroke-width="18" stroke-dasharray="187.3 45.2" stroke-dashoffset="-12.9"/>
+    <rect x="50" y="40" width="30" height="17" fill="#E1AB65"/>
+    <rect x="44" y="40" width="17" height="72" fill="#E1AB65"/>
+    <polygon points="61,57 79,57 61,79" fill="#E1AB65"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Watch</span>
+    <h1>Experience a gathering before you attend one.</h1>
+    <p class="lede">Catch up on sermons, watch TGP LIVE, or join a Petition prayer call — from anywhere.</p>
+  </div>
+</div>
+
+<!-- Latest -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Latest message</span>
+      <h2>Most Recent Gathering</h2>
+    </div>
+    <div class="ph tall navy-bg" style="min-height:440px;">
+      <span class="label">YouTube embed · latest sermon (pulled automatically from the channel)</span>
+    </div>
+    <div class="btn-row" style="margin-top:26px;">
+      <a class="btn navy" href="https://www.youtube.com/@TheGatheringPlaceGlobal?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      <a class="btn outline" href="https://www.facebook.com/thegatheringplacemn" target="_blank" rel="noopener">Watch on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- Archive -->
+<section class="tight" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Archive</span>
+      <h2>Recent Messages</h2>
+      <p style="margin-top:8px; font-size:0.9rem; color:#8a99a3;">(In production this grid pulls from YouTube automatically — filterable by series, speaker, or date.)</p>
+    </div>
+    <div class="grid c3">
+      <div class="card">
+        <div class="ph short navy-bg"><span class="label">Video thumbnail</span></div>
+        <div class="pad"><span class="meta">[Date] · TGP LIVE</span><h3 style="font-size:1.05rem;">[Message title]</h3></div>
+      </div>
+      <div class="card">
+        <div class="ph short"><span class="label">Video thumbnail</span></div>
+        <div class="pad"><span class="meta">[Date] · Petition</span><h3 style="font-size:1.05rem;">[Prayer call recap]</h3></div>
+      </div>
+      <div class="card">
+        <div class="ph short rose-bg"><span class="label">Video thumbnail</span></div>
+        <div class="pad"><span class="meta">[Date] · Collide</span><h3 style="font-size:1.05rem;">[Worship night recap]</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resources -->
+<section id="resources">
+  <div class="wrap split">
+    <div class="ph tall gold-bg"><span class="label">BREATHE devotional cover</span></div>
+    <div>
+      <span class="kicker">Free resource</span>
+      <h2>Breathe: A Six-Day Fasting Journey</h2>
+      <p style="margin:18px 0;">Six days. Six intentional moments to stop performing, stop pushing, and start positioning. A free devotional guide from TGP.</p>
+      <a class="btn gold" href="#">Download the Devotional</a>
+      <p style="font-size:0.85rem; color:#8a99a3; margin-top:14px;">More resources coming — devotionals, guides, and study material will live here as they're released.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="give-band" style="background:linear-gradient(120deg,#172A3A,#22394d);">
+  <div class="wrap">
+    <h2>Better in Person</h2>
+    <p>Watching is a great start. A seat at the table is even better.</p>
+    <a class="btn gold" href="plan-your-visit.html">Plan Your Visit</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Next Gathering</h4>
+        <p class="next-g"><strong>First Fellowship</strong> · First Sunday<br>Aug 2 · 12:30 PM<br>Location varies — <a href="events.html#calendar" style="color:#E1AB65;">see the calendar</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="sundays.html">Sundays</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="events.html#collide">Collide Experience</a></li>
+          <li><a href="events.html#brilliance">Brilliance Emerge</a></li>
+          <li><a href="connect.html#grow-homes">Grow Homes</a></li>
+          <li><a href="connect.html#pray">Petition Prayer Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the Loop</h4>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button>Join</button>
+        </form>
+        <div class="social-row">
+          <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="a1" href="sundays.html">This Sunday</a>
+  <a class="a2" href="give.html">Give</a>
+</div>
+
+</body>
+</html>

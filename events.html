@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — The Gathering Place</title>
+<meta name="description" content="Everything happening at The Gathering Place — Sunday gatherings, Collide worship nights, Brilliance Emerge, and special events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="icon-gold.png">
+</head>
+<body>
+
+<div class="announce">
+  <strong>BREATHE</strong> — a free six-day fasting journey.<a href="watch.html#resources">Download the devotional →</a>
+  <button class="dismiss" aria-label="Dismiss" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+    </a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links">
+      <a href="sundays.html">Sundays</a>
+      <a href="about.html">About</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch.html">Watch</a>
+      <a class="im-new" href="plan-your-visit.html">I'm New</a>
+      <a class="btn-give" href="give.html">Give</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero short">
+  <svg class="gmark" viewBox="0 0 100 112" aria-hidden="true">
+    <circle cx="50" cy="50" r="37" fill="none" stroke="#E1AB65" stroke-width="18" stroke-dasharray="187.3 45.2" stroke-dashoffset="-12.9"/>
+    <rect x="50" y="40" width="30" height="17" fill="#E1AB65"/>
+    <rect x="44" y="40" width="17" height="72" fill="#E1AB65"/>
+    <polygon points="61,57 79,57 61,79" fill="#E1AB65"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Events</span>
+    <h1>Thoughtfully curated gatherings.</h1>
+    <p class="lede">Space for growth, worship, and community — from Sunday tables to Collide nights to conference weekends.</p>
+  </div>
+</div>
+
+<!-- Calendar -->
+<section class="tight" id="calendar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The calendar</span>
+      <h2>Everything, In One Place</h2>
+      <p style="margin-top:10px;">Dates, times, and this month's First Fellowship location always live here.</p>
+    </div>
+    <h3 style="margin-bottom:4px;">Church Rhythm</h3>
+    <p style="font-size:0.9rem; margin-bottom:14px;">Sundays, Bible study, and the weekly beat of TGP life.</p>
+    <div style="display:grid; gap:12px;">
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--navy); color:var(--gold); border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Aug 2</div>
+        <div><strong style="color:var(--navy);">First Fellowship</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Boom Island Park (Pavilion C), 724 Sibley St NE, Minneapolis</span></div>
+      </div>
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--slate); color:#fff; border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Aug 9</div>
+        <div><strong style="color:var(--navy);">Grow Home</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Proximity Collective, 2520 N 2nd St, Minneapolis</span></div>
+      </div>
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--navy); color:var(--gold); border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Aug 16</div>
+        <div><strong style="color:var(--navy);">TGP Live</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Proximity Collective, 2520 N 2nd St, Minneapolis + streaming online</span></div>
+      </div>
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--slate); color:#fff; border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Aug 23</div>
+        <div><strong style="color:var(--navy);">Grow Home</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Proximity Collective, 2520 N 2nd St, Minneapolis</span></div>
+      </div>
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--rose); color:#fff; border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sat<br>Sep 5</div>
+        <div><strong style="color:var(--navy);">Gather + Grow Bible Study</strong><br><span style="font-size:0.88rem;">9:15–10:30am · Proximity Collective, 2520 N 2nd St, Minneapolis</span></div>
+      </div>
+      <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--navy); color:var(--gold); border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Sep 6</div>
+        <div><strong style="color:var(--navy);">First Fellowship</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Proximity North, 2520 N 2nd St, Minneapolis</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin:40px 0 4px;">Special Events</h3>
+    <p style="font-size:0.9rem; margin-bottom:14px;">Collide, Brilliance, and one-of-a-kind gatherings.</p>
+    <div style="display:grid; gap:12px;">
+      <div style="background:#0e1c28; border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
+        <div style="background:var(--gold); color:#0e1c28; border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Fri<br>Aug 7</div>
+        <div><strong style="color:#fff;">Collide Night</strong> <span style="color:var(--gold); font-size:0.75rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin-left:6px;">Collide</span><br><span style="font-size:0.88rem; color:#b9c6cd;">Doors 6:30pm · starts 7pm · Westwood Community Church (Bush Lake Campus), 6301 Cecilia Cir</span></div>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:26px;">
+      <a class="btn navy" href="webcal://calendar.planningcenteronline.com/icals/eJxj4ajmsGLLz2TOt2G04kotzi8oqWa34khOzPFU4rIwMrMwYrNicw2xYivNZL59yNKKuyCxKDG3uJoBAJSfD1M=5fe8287487319b6325bed43930ead9639a28cc55">Subscribe — Apple / Outlook</a>
+      <a class="btn outline" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fcalendar.planningcenteronline.com%2Ficals%2FeJxj4ajmsGLLz2TOt2G04kotzi8oqWa34khOzPFU4rIwMrMwYrNicw2xYivNZL59yNKKuyCxKDG3uJoBAJSfD1M%3D5fe8287487319b6325bed43930ead9639a28cc55" target="_blank" rel="noopener">Subscribe — Google Calendar</a>
+      <a class="btn outline" href="https://tgpmn.churchcenter.com/calendar" target="_blank" rel="noopener">Open the Full Calendar</a>
+    </div>
+    <p class="note-draft">Draft note — the Church Rhythm list is a real snapshot of your calendar feed (pulled Aug 2); in the live build it refreshes automatically. Collide isn't in that feed, so its card is hand-placed for now — in Planning Center, events tagged Collide/Brilliance can feed the Special Events list the same way (separate feed link or an all-events feed, and the site sorts by tag). Update Church Center once and both lists follow.</p>
+  </div>
+</section>
+
+<!-- Collide block -->
+<section class="tight" id="collide">
+  <div class="wrap">
+    <div class="brand-block collide">
+      <div class="content">
+        <span class="tag">A ministry of The Gathering Place · @collideexperience</span>
+        <h2>Collide Experience</h2>
+        <p>Where heaven and earth collide. Nights of unfiltered worship, prayer, and presence — plus the annual Collide Conference.</p>
+        <div>
+          <p style="font-weight:700; color:#fff; margin-bottom:4px;">Collide Worship Nights</p>
+          <p style="font-size:0.9rem;">Next night: <strong style="color:#fff;">Friday, August 7</strong> at Westwood Community Church (Bush Lake Campus), 6301 Cecilia Cir. Doors 6:30 PM · starts 7:00 PM. Free — bring someone.</p>
+        </div>
+        <div>
+          <p style="font-weight:700; color:#fff; margin-bottom:4px;">Collide Conference</p>
+          <p style="font-size:0.9rem;">Annual — dates &amp; venue [TBD].</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn gold" href="#">RSVP Next Night</a>
+          <a class="btn outline-light" href="https://www.instagram.com/collideexperience" target="_blank" rel="noopener">Follow Collide</a>
+        </div>
+      </div>
+      <div class="ph navy-bg"><span class="label">Photo · Collide worship night, lights, crowd</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Brilliance block -->
+<section class="tight" id="brilliance">
+  <div class="wrap">
+    <div class="brand-block brilliance">
+      <div class="ph rose-bg"><span class="label">Photo · Brilliance conference, speakers, community</span></div>
+      <div class="content">
+        <span class="tag">A ministry of The Gathering Place · @iambrillianceemerge</span>
+        <h2>Brilliance Emerge</h2>
+        <p>A community called to shine — empowering people to emerge into who God made them to be, gathered around an annual conference and a growing community.</p>
+        <div>
+          <p style="font-weight:700; color:#fff; margin-bottom:4px;">Brilliance Conference</p>
+          <p style="font-size:0.9rem;">Dates, speakers &amp; registration [TBD] — join the notify list below.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn gold" href="#">Notify Me</a>
+          <a class="btn outline-light" href="https://www.instagram.com/iambrillianceemerge" target="_blank" rel="noopener">Follow Brilliance</a>
+        </div>
+      </div>
+    </div>
+    <p class="note-draft">Draft note: Collide and Brilliance live at /events/collide and /events/brilliance from day one, so either can become its own page or microsite later with a simple redirect — no rebuild.</p>
+  </div>
+</section>
+
+<!-- Past events -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Look back</span>
+      <h2>Past Gatherings</h2>
+      <p style="margin-top:10px;">Recap photos and video are what convince someone to come to the next one.</p>
+    </div>
+    <div class="grid c4">
+      <div class="ph short"><span class="label">Recap photo</span></div>
+      <div class="ph short rose-bg"><span class="label">Recap photo</span></div>
+      <div class="ph short navy-bg"><span class="label">Recap video</span></div>
+      <div class="ph short gold-bg"><span class="label">Recap photo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Alerts -->
+<section class="give-band" style="background:linear-gradient(120deg,#172A3A,#22394d);">
+  <div class="wrap">
+    <h2>Never Miss an Event</h2>
+    <p>Get event announcements by text or email — nothing else, no noise.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn gold" href="#">Get Event Alerts</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Next Gathering</h4>
+        <p class="next-g"><strong>First Fellowship</strong> · First Sunday<br>Aug 2 · 12:30 PM<br>Location varies — <a href="events.html#calendar" style="color:#E1AB65;">see the calendar</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="sundays.html">Sundays</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="events.html#collide">Collide Experience</a></li>
+          <li><a href="events.html#brilliance">Brilliance Emerge</a></li>
+          <li><a href="connect.html#grow-homes">Grow Homes</a></li>
+          <li><a href="connect.html#pray">Petition Prayer Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the Loop</h4>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button>Join</button>
+        </form>
+        <div class="social-row">
+          <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="a1" href="sundays.html">This Sunday</a>
+  <a class="a2" href="give.html">Give</a>
+</div>
+
+</body>
+</html>

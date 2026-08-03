@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — The Gathering Place</title>
+<meta name="description" content="Get in touch with The Gathering Place — questions, prayer, giving, events, or just to say hi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="icon-gold.png">
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+    </a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links">
+      <a href="sundays.html">Sundays</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch.html">Watch</a>
+      <a class="im-new" href="plan-your-visit.html">I'm New</a>
+      <a class="btn-give" href="give.html">Give</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero short">
+  <svg class="gmark" viewBox="0 0 100 112" aria-hidden="true">
+    <circle cx="50" cy="50" r="37" fill="none" stroke="#E1AB65" stroke-width="18" stroke-dasharray="187.3 45.2" stroke-dashoffset="-12.9"/>
+    <rect x="50" y="40" width="30" height="17" fill="#E1AB65"/>
+    <rect x="44" y="40" width="17" height="72" fill="#E1AB65"/>
+    <polygon points="61,57 79,57 61,79" fill="#E1AB65"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h1>Say hi. A real person answers.</h1>
+    <p class="lede">Questions, prayer, giving, press, or just checking us out — this is the way through that isn't Instagram DMs.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap split" style="align-items:start;">
+    <div class="form-card">
+      <h3 style="margin-bottom:18px;">Send a message</h3>
+      <form class="std" onsubmit="return false;">
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input id="c-name" type="text" placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" type="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label for="c-topic">What's this about?</label>
+          <select id="c-topic">
+            <option>General question</option>
+            <option>Planning a visit</option>
+            <option>Prayer request</option>
+            <option>Giving</option>
+            <option>Events / Collide / Brilliance</option>
+            <option>Serving &amp; volunteering</option>
+            <option>Media / press</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" rows="5" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button class="btn gold" type="submit" style="border:0; cursor:pointer;">Send Message</button>
+        <p style="font-size:0.78rem; color:#8a99a3;">The dropdown routes your message to the right inbox, so the right person sees it first.</p>
+      </form>
+    </div>
+    <div>
+      <span class="kicker">Direct lines</span>
+      <h2 style="font-size:1.9rem;">Reach the Right Person</h2>
+      <ul style="margin:22px 0 0; list-style:none; display:grid; gap:14px; font-size:0.95rem;">
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">General</strong> — <a href="mailto:info@thegatheringplacemn.org" style="color:#C38A84; font-weight:700;">info@thegatheringplacemn.org</a></li>
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Giving</strong> — [giving@ email TBD]</li>
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Events</strong> — [events@ email TBD]</li>
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Prayer</strong> — <a href="connect.html#pray" style="color:#C38A84; font-weight:700;">prayer request form</a></li>
+      </ul>
+      <div style="margin-top:30px;">
+        <h3 style="font-size:1.05rem; margin-bottom:8px;">Mailing address</h3>
+        <p>PO Box 25856<br>Woodbury, MN 55125</p>
+      </div>
+      <div style="margin-top:22px;">
+        <h3 style="font-size:1.05rem; margin-bottom:8px;">Response time</h3>
+        <p style="font-size:0.92rem;">We usually reply within 2 business days. If it's about this Sunday, mention that — we'll bump it up.</p>
+      </div>
+      <div class="social-row" style="margin-top:26px;">
+        <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener" style="color:#172A3A; border-color:#D2D2D2;">IG</a>
+        <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener" style="color:#172A3A; border-color:#D2D2D2;">YT</a>
+        <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener" style="color:#172A3A; border-color:#D2D2D2;">FB</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Next Gathering</h4>
+        <p class="next-g"><strong>First Fellowship</strong> · First Sunday<br>Aug 2 · 12:30 PM<br>Location varies — <a href="events.html#calendar" style="color:#E1AB65;">see the calendar</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="sundays.html">Sundays</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="events.html#collide">Collide Experience</a></li>
+          <li><a href="events.html#brilliance">Brilliance Emerge</a></li>
+          <li><a href="connect.html#grow-homes">Grow Homes</a></li>
+          <li><a href="connect.html#pray">Petition Prayer Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the Loop</h4>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button>Join</button>
+        </form>
+        <div class="social-row">
+          <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="a1" href="sundays.html">This Sunday</a>
+  <a class="a2" href="give.html">Give</a>
+</div>
+
+</body>
+</html>

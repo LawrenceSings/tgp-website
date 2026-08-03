@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect — The Gathering Place</title>
+<meta name="description" content="Pray, Give, Serve, Invite — how to get involved at The Gathering Place. Find a Grow Home, join a team, or request prayer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="icon-gold.png">
+</head>
+<body>
+
+<div class="announce">
+  <strong>BREATHE</strong> — a free six-day fasting journey.<a href="watch.html#resources">Download the devotional →</a>
+  <button class="dismiss" aria-label="Dismiss" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+    </a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links">
+      <a href="sundays.html">Sundays</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="connect.html" class="active">Connect</a>
+      <a href="watch.html">Watch</a>
+      <a class="im-new" href="plan-your-visit.html">I'm New</a>
+      <a class="btn-give" href="give.html">Give</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero short">
+  <svg class="gmark" viewBox="0 0 100 112" aria-hidden="true">
+    <circle cx="50" cy="50" r="37" fill="none" stroke="#E1AB65" stroke-width="18" stroke-dasharray="187.3 45.2" stroke-dashoffset="-12.9"/>
+    <rect x="50" y="40" width="30" height="17" fill="#E1AB65"/>
+    <rect x="44" y="40" width="17" height="72" fill="#E1AB65"/>
+    <polygon points="61,57 79,57 61,79" fill="#E1AB65"/>
+  </svg>
+  <div class="wrap">
+    <span class="kicker">Connect</span>
+    <h1>You came. Now what?</h1>
+    <p class="lede">Four simple ways to move from visiting to belonging: pray with us, give to the vision, serve on a team, invite someone you love.</p>
+  </div>
+</div>
+
+<!-- Four pillars -->
+<section>
+  <div class="wrap">
+    <div class="pillars">
+      <a class="pillar p1" href="#pray" id="pray-pillar">
+        <h3>Pray</h3>
+        <p>Join Petition — our weekly Monday prayer call — or send us a request. We'll actually pray it.</p>
+        <span class="go">Pray with us →</span>
+      </a>
+      <a class="pillar p2" href="give.html">
+        <h3>Give</h3>
+        <p>Fuel a church without walls. Every gift builds tables, gatherings, and good news.</p>
+        <span class="go">Give →</span>
+      </a>
+      <a class="pillar p3" href="#serve">
+        <h3>Serve</h3>
+        <p>As our ministry grows, we need people just like you. Find your team.</p>
+        <span class="go">Join a team →</span>
+      </a>
+      <a class="pillar p4" href="#invite">
+        <h3>Invite</h3>
+        <p>The next person at the table gets there because you asked. It's that simple.</p>
+        <span class="go">Invite someone →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Grow Homes -->
+<section class="band" id="grow-homes">
+  <div class="wrap split">
+    <div>
+      <span class="kicker gold">Grow Homes</span>
+      <h2>Living Rooms, Deep Roots</h2>
+      <p style="margin:18px 0;">On the 2nd and 4th weekends, TGP meets in living rooms across Minneapolis and Saint Paul — intimate worship, meaningful discussion, supportive community. This is where church gets personal.</p>
+      <p style="font-size:0.9rem; opacity:0.8;">Locations are shared when you sign up — neighborhood first, address after. Groups typically host 8–15 people.</p>
+      <div class="btn-row" style="margin-top:24px;">
+        <a class="btn gold" href="#">Find a Grow Home</a>
+        <a class="btn outline-light" href="#">Host One</a>
+      </div>
+    </div>
+    <div class="ph tall"><span class="label">Photo · living room, worship, small circle</span></div>
+  </div>
+</section>
+
+<!-- Serve -->
+<section id="serve">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Serve</span>
+      <h2>Find Your Team</h2>
+      <p style="margin-top:10px;">Every gathering happens because somebody set the table. Two ways in — join a team, or just help at one event.</p>
+    </div>
+    <div class="grid c4">
+      <div class="card"><div class="pad"><h3 style="font-size:1.05rem;">Worship</h3><p style="font-size:0.88rem;">Singers &amp; musicians for TGP LIVE and Collide nights.</p></div></div>
+      <div class="card"><div class="pad"><h3 style="font-size:1.05rem;">Hospitality</h3><p style="font-size:0.88rem;">First Fellowship runs on hosts, cooks, and greeters.</p></div></div>
+      <div class="card"><div class="pad"><h3 style="font-size:1.05rem;">Production &amp; Media</h3><p style="font-size:0.88rem;">Livestream, sound, socials, photography.</p></div></div>
+      <div class="card"><div class="pad"><h3 style="font-size:1.05rem;">Events</h3><p style="font-size:0.88rem;">Short-term crews for conferences &amp; special nights.</p></div></div>
+    </div>
+    <div class="btn-row" style="margin-top:32px;">
+      <a class="btn navy" href="#">I Want to Serve</a>
+      <a class="btn outline" href="#">Volunteer at One Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- Petition / Pray -->
+<section class="tight" style="background:#fff;" id="pray">
+  <div class="wrap split">
+    <div class="ph navy-bg"><span class="label">Photo/graphic · Petition prayer call</span></div>
+    <div>
+      <span class="kicker">Petition · Every Monday</span>
+      <h2>A Church That Prays Together</h2>
+      <p style="margin:16px 0;">Petition is our weekly Monday prayer call — the community gathers online to seek God, lift requests, and stand in faith with one another. Listen quietly or pray out loud; carrying something heavy or just wanting company — you're invited.</p>
+      <div class="btn-row">
+        <a class="btn navy" href="https://www.youtube.com/@TheGatheringPlaceGlobal" target="_blank" rel="noopener">Join via YouTube</a>
+        <a class="btn outline" href="#">Will You Pray for Me?</a>
+      </div>
+      <p style="font-size:0.85rem; color:#8a99a3; margin-top:16px;">Prayer requests can be private — only the prayer team sees them. Say so on the form; it determines whether people use it at all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Text community -->
+<section class="tight" id="text">
+  <div class="wrap split" style="align-items:start;">
+    <div>
+      <span class="kicker">Text community</span>
+      <h2>Get TGP in Your Texts</h2>
+      <p style="margin:16px 0;">A text or two a week — where this Sunday is meeting, what's coming up, and giving links straight to your phone. It's the easiest way to never miss a gathering, especially in the months First Fellowship moves around.</p>
+      <p style="font-size:0.85rem; color:#8a99a3;">Msg &amp; data rates may apply. Reply STOP anytime to opt out.</p>
+    </div>
+    <div class="form-card" style="max-width:400px; justify-self:center;">
+      <h3 style="margin-bottom:14px;">Sign Up for Texts</h3>
+      <iframe src="https://widget.smsinfo.io/v2/571ae0b69385d0862239954a4950c9f9" width="300" height="640" style="border:0; max-width:100%;" title="TGP text community sign-up"></iframe>
+      <div style="font-size:10px; color:#5a5a5a;">Powered by <a href="http://www.slicktext.com" rel="nofollow" title="Powered by SlickText.com">SlickText.com</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Invite -->
+<section id="invite">
+  <div class="wrap section-head center">
+    <span class="kicker">Invite</span>
+    <h2>The Next Chair Is Yours to Fill</h2>
+    <p style="margin:14px auto 26px; max-width:560px;">Most people come to church because someone they trust asked. Share what's next at TGP — we make graphics you can post straight to your story.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn gold" href="events.html">See What's Coming Up</a>
+      <a class="btn outline" href="https://www.instagram.com/thegatheringplacemn" target="_blank" rel="noopener">Share From Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- New here -->
+<section class="give-band">
+  <div class="wrap">
+    <h2>New Here?</h2>
+    <p>Start with a visit. Tell us you're coming and we'll meet you at the door.</p>
+    <a class="btn navy" href="plan-your-visit.html">Plan Your Visit</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Next Gathering</h4>
+        <p class="next-g"><strong>First Fellowship</strong> · First Sunday<br>Aug 2 · 12:30 PM<br>Location varies — <a href="events.html#calendar" style="color:#E1AB65;">see the calendar</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="sundays.html">Sundays</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="events.html#collide">Collide Experience</a></li>
+          <li><a href="events.html#brilliance">Brilliance Emerge</a></li>
+          <li><a href="connect.html#grow-homes">Grow Homes</a></li>
+          <li><a href="connect.html#pray">Petition Prayer Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the Loop</h4>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button>Join</button>
+        </form>
+        <div class="social-row">
+          <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="a1" href="sundays.html">This Sunday</a>
+  <a class="a2" href="give.html">Give</a>
+</div>
+
+</body>
+</html>
