@@ -31,7 +31,6 @@
       <a href="events.html">Events</a>
       <a href="connect.html">Connect</a>
       <a href="watch.html" class="active">Watch</a>
-      <a class="im-new" href="plan-your-visit.html">I'm New</a>
       <a class="btn-give" href="give.html">Give</a>
     </div>
   </nav>
@@ -58,8 +57,12 @@
       <span class="kicker">Latest message</span>
       <h2>Most Recent Gathering</h2>
     </div>
-    <div class="ph tall navy-bg" style="min-height:440px;">
-      <span class="label">YouTube embed · latest sermon (pulled automatically from the channel)</span>
+    <div style="position:relative; padding-bottom:56.25%; height:0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg);">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=UUhalWs3HFndR9HoFsS0SPkA"
+              title="The Gathering Place — latest gathering"
+              style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
     </div>
     <div class="btn-row" style="margin-top:26px;">
       <a class="btn navy" href="https://www.youtube.com/@TheGatheringPlaceGlobal?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
@@ -74,9 +77,8 @@
     <div class="section-head">
       <span class="kicker">Archive</span>
       <h2>Recent Messages</h2>
-      <p style="margin-top:8px; font-size:0.9rem; color:#8a99a3;">(In production this grid pulls from YouTube automatically — filterable by series, speaker, or date.)</p>
     </div>
-    <div class="grid c3">
+    <div class="grid c3" id="yt-archive">
       <div class="card">
         <div class="ph short navy-bg"><span class="label">Video thumbnail</span></div>
         <div class="pad"><span class="meta">[Date] · TGP LIVE</span><h3 style="font-size:1.05rem;">[Message title]</h3></div>
@@ -112,7 +114,7 @@
   <div class="wrap">
     <h2>Better in Person</h2>
     <p>Watching is a great start. A seat at the table is even better.</p>
-    <a class="btn gold" href="plan-your-visit.html">Plan Your Visit</a>
+    <a class="btn gold" href="sundays.html">See Our Sundays</a>
   </div>
 </section>
 

@@ -31,7 +31,6 @@
       <a href="events.html" class="active">Events</a>
       <a href="connect.html">Connect</a>
       <a href="watch.html">Watch</a>
-      <a class="im-new" href="plan-your-visit.html">I'm New</a>
       <a class="btn-give" href="give.html">Give</a>
     </div>
   </nav>
@@ -61,7 +60,7 @@
     </div>
     <h3 style="margin-bottom:4px;">Church Rhythm</h3>
     <p style="font-size:0.9rem; margin-bottom:14px;">Sundays, Bible study, and the weekly beat of TGP life.</p>
-    <div style="display:grid; gap:12px;">
+    <div style="display:grid; gap:12px;" id="rhythm-list">
       <div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
         <div style="background:var(--navy); color:var(--gold); border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Sun<br>Aug 2</div>
         <div><strong style="color:var(--navy);">First Fellowship</strong><br><span style="font-size:0.88rem;">12:30–2:30pm · Boom Island Park (Pavilion C), 724 Sibley St NE, Minneapolis</span></div>
@@ -90,7 +89,7 @@
 
     <h3 style="margin:40px 0 4px;">Special Events</h3>
     <p style="font-size:0.9rem; margin-bottom:14px;">Collide, Brilliance, and one-of-a-kind gatherings.</p>
-    <div style="display:grid; gap:12px;">
+    <div style="display:grid; gap:12px;" id="special-list">
       <div style="background:#0e1c28; border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">
         <div style="background:var(--gold); color:#0e1c28; border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; font-family:'Anton'; text-transform:uppercase; line-height:1.15;">Fri<br>Aug 7</div>
         <div><strong style="color:#fff;">Collide Night</strong> <span style="color:var(--gold); font-size:0.75rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin-left:6px;">Collide</span><br><span style="font-size:0.88rem; color:#b9c6cd;">Doors 6:30pm · starts 7pm · Westwood Community Church (Bush Lake Campus), 6301 Cecilia Cir</span></div>
@@ -101,8 +100,7 @@
       <a class="btn outline" href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fcalendar.planningcenteronline.com%2Ficals%2FeJxj4ajmsGLLz2TOt2G04kotzi8oqWa34khOzPFU4rIwMrMwYrNicw2xYivNZL59yNKKuyCxKDG3uJoBAJSfD1M%3D5fe8287487319b6325bed43930ead9639a28cc55" target="_blank" rel="noopener">Subscribe — Google Calendar</a>
       <a class="btn outline" href="https://tgpmn.churchcenter.com/calendar" target="_blank" rel="noopener">Open the Full Calendar</a>
     </div>
-    <p class="note-draft">Draft note — the Church Rhythm list is a real snapshot of your calendar feed (pulled Aug 2); in the live build it refreshes automatically. Collide isn't in that feed, so its card is hand-placed for now — in Planning Center, events tagged Collide/Brilliance can feed the Special Events list the same way (separate feed link or an all-events feed, and the site sorts by tag). Update Church Center once and both lists follow.</p>
-  </div>
+      </div>
 </section>
 
 <!-- Collide block -->
@@ -115,7 +113,7 @@
         <p>Where heaven and earth collide. Nights of unfiltered worship, prayer, and presence — plus the annual Collide Conference.</p>
         <div>
           <p style="font-weight:700; color:#fff; margin-bottom:4px;">Collide Worship Nights</p>
-          <p style="font-size:0.9rem;">Next night: <strong style="color:#fff;">Friday, August 7</strong> at Westwood Community Church (Bush Lake Campus), 6301 Cecilia Cir. Doors 6:30 PM · starts 7:00 PM. Free — bring someone.</p>
+          <p style="font-size:0.9rem;" id="collide-next">Next night: <strong style="color:#fff;">Friday, August 7</strong> at Westwood Community Church (Bush Lake Campus), 6301 Cecilia Cir. Doors 6:30 PM · starts 7:00 PM. Free — bring someone.</p>
         </div>
         <div>
           <p style="font-weight:700; color:#fff; margin-bottom:4px;">Collide Conference</p>
@@ -157,7 +155,6 @@
         </div>
       </div>
     </div>
-    <p class="note-draft">Draft note: Collide and Brilliance live at /events/collide and /events/brilliance from day one, so either can become its own page or microsite later with a simple redirect — no rebuild.</p>
   </div>
 </section>
 

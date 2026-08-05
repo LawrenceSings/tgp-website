@@ -175,6 +175,78 @@
   }
   renderCards(rhythmCards());
 
+  /* ---------- events-page calendar lists (Church Rhythm / Special Events) ----------
+     Rhythm gatherings fill the first list; ANYTHING else on the calendar —
+     Collide Nights, Brilliance, one-offs — automatically lands in Special Events. */
+  function renderEventLists(events) {
+    var rhythmEl = document.getElementById('rhythm-list');
+    var specialEl = document.getElementById('special-list');
+    if (!rhythmEl && !specialEl) return;
+    var RHYTHM = { 'first-fellowship': 1, 'grow-home': 1, 'tgp-live': 1,
+                   'fifth-table': 1, 'gather-grow': 1 };
+    var BOX = {
+      'first-fellowship': 'background:var(--navy); color:var(--gold);',
+      'grow-home': 'background:var(--slate); color:#fff;',
+      'tgp-live': 'background:var(--navy); color:var(--gold);',
+      'fifth-table': 'background:var(--navy); color:var(--gold);',
+      'gather-grow': 'background:var(--rose); color:#fff;'
+    };
+    var boxBase = 'border-radius:10px; min-width:86px; text-align:center; padding:10px 8px; ' +
+                  "font-family:'Anton'; text-transform:uppercase; line-height:1.15;";
+    function dateBox(ev, style) {
+      return '<div style="' + style + boxBase + '">' + DAYS[ev.date.getDay()] + '<br>' +
+             MONTHS[ev.date.getMonth()].slice(0, 3) + ' ' + ev.date.getDate() + '</div>';
+    }
+    function detailLine(ev) {
+      var bits = [];
+      if (ev.time) bits.push(ev.time);
+      if (ev.loc) bits.push(ev.loc.replace(' - ', ', '));
+      return bits.join(' · ');
+    }
+    var rhythm = events.filter(function (e) { return RHYTHM[e.slug]; }).slice(0, 6);
+    var special = events.filter(function (e) { return !RHYTHM[e.slug]; }).slice(0, 5);
+
+    // keep the Collide block's "Next night" line current
+    var collideNext = document.getElementById('collide-next');
+    var nextCollide = events.filter(function (e) { return e.slug === 'collide'; })[0];
+    if (collideNext && nextCollide) {
+      var FULLDAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var d = nextCollide.date;
+      collideNext.innerHTML = 'Next night: <strong style="color:#fff;">' +
+        FULLDAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + '</strong>' +
+        (nextCollide.loc ? ' at ' + nextCollide.loc.replace(' - ', ', ') : '') +
+        (nextCollide.time ? '. ' + nextCollide.time : '') + '. Free — bring someone.';
+    }
+
+    if (rhythmEl && rhythm.length) {
+      rhythmEl.innerHTML = rhythm.map(function (ev) {
+        return '<div style="background:var(--paper); border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">' +
+          dateBox(ev, BOX[ev.slug]) +
+          '<div><strong style="color:var(--navy);">' + (META[ev.slug].name || ev.name) +
+          '</strong><br><span style="font-size:0.88rem;">' + detailLine(ev) + '</span></div></div>';
+      }).join('');
+    }
+    if (specialEl) {
+      if (!special.length) {
+        specialEl.innerHTML = '<p style="font-size:0.92rem;">Nothing extra on the calendar right now — follow ' +
+          '<a href="https://www.instagram.com/collideexperience" target="_blank" rel="noopener" style="color:#C38A84; font-weight:700;">@collideexperience</a> and ' +
+          '<a href="https://www.instagram.com/iambrillianceemerge" target="_blank" rel="noopener" style="color:#C38A84; font-weight:700;">@iambrillianceemerge</a> for what\'s next.</p>';
+        return;
+      }
+      specialEl.innerHTML = special.map(function (ev) {
+        var isBrill = /brilliance/i.test(ev.name);
+        var cardBg = isBrill ? '#8f5e58' : '#0e1c28';
+        var accent = isBrill ? '#f3d9c4' : 'var(--gold)';
+        var tag = isBrill ? 'Brilliance' : (ev.slug === 'collide' ? 'Collide' : 'Special');
+        return '<div style="background:' + cardBg + '; border-radius:12px; box-shadow:var(--shadow); display:flex; gap:20px; align-items:center; padding:16px 20px;">' +
+          dateBox(ev, 'background:' + accent + '; color:' + cardBg + ';') +
+          '<div><strong style="color:#fff;">' + ev.name + '</strong> ' +
+          '<span style="color:' + accent + '; font-size:0.75rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; margin-left:6px;">' + tag + '</span><br>' +
+          '<span style="font-size:0.88rem; color:rgba(255,255,255,0.78);">' + detailLine(ev) + '</span></div></div>';
+      }).join('');
+    }
+  }
+
   /* ---------- live calendar feed (works on the deployed site) ---------- */
   fetch('/calendar.ics').then(function (r) {
     if (!r.ok) throw new Error('feed unavailable');
@@ -190,16 +262,26 @@
       if (!dm) return;
       var stamp = dm[1] + dm[2] + dm[3];
       if (stamp < todayStamp) return;
-      var summary = ((ev.match(/SUMMARY:([^\r\n]*)/) || [])[1] || '').trim();
+      var em = ev.match(/DTEND[^:]*:\d{8}T(\d{2})(\d{2})/);
+      var summary = ((ev.match(/SUMMARY:([^\r\n]*)/) || [])[1] || '').trim()
+                      .replace(/^(.+?): \1\s*$/, '$1');
       var loc = ((ev.match(/LOCATION:([^\r\n]*)/) || [])[1] || '')
                   .replace(/\\,/g, ',').replace(/, USA\s*$/, '');
       var d = new Date(+dm[1], +dm[2] - 1, +dm[3]);
       var time = dm[4] ? fmtTime(+dm[4], +dm[5]) : '';
+      if (time && em) {
+        var endT = fmtTime(+em[1], +em[2]);
+        // compress "6:30 PM–8:30 PM" to "6:30–8:30 PM"
+        if (time.slice(-2) === endT.slice(-2)) time = time.slice(0, -3);
+        time += '–' + endT;
+      }
       events.push({
         stamp: stamp,
         slug: slugFor(summary),
+        name: summary,
         date: d,
         loc: loc,
+        time: time,
         meta: DAYS[d.getDay()] + ' · ' + MONTHS[d.getMonth()].slice(0, 3) + ' ' +
               d.getDate() + (time ? ' · ' + time : ''),
         desc: null
@@ -207,6 +289,7 @@
     });
     events.sort(function (a, b) { return a.stamp < b.stamp ? -1 : 1; });
     if (events.length >= 2) renderCards(events);
+    renderEventLists(events);
 
     // exact First Fellowship location for the This Sunday block
     if (slug === 'first-fellowship') {
@@ -223,6 +306,36 @@
       }
     }
   }).catch(function () { /* rhythm-based fallback already rendered */ });
+
+  /* ---------- YouTube archive (watch page): latest videos from the channel feed,
+     proxied at /youtube.xml via Netlify ---------- */
+  var ytGrid = document.getElementById('yt-archive');
+  if (ytGrid) {
+    fetch('/youtube.xml').then(function (r) {
+      if (!r.ok) throw new Error('yt feed unavailable');
+      return r.text();
+    }).then(function (xml) {
+      var entries = [];
+      xml.split('<entry>').slice(1).forEach(function (e) {
+        var id = (e.match(/<yt:videoId>([^<]+)/) || [])[1];
+        var title = (e.match(/<media:title>([^<]+)/) || [])[1];
+        var pub = e.match(/<published>(\d{4})-(\d{2})-(\d{2})/) || [];
+        if (id && title) entries.push({ id: id, title: title, y: pub[1], m: pub[2], d: pub[3] });
+      });
+      if (!entries.length) return;
+      ytGrid.innerHTML = entries.slice(0, 6).map(function (v) {
+        var dateStr = v.m ? MONTHS[+v.m - 1].slice(0, 3) + ' ' + (+v.d) + ', ' + v.y : '';
+        var kind = /petition/i.test(v.title) ? 'Petition' :
+                   /collide/i.test(v.title) ? 'Collide' : 'Message';
+        return '<a class="card" href="https://www.youtube.com/watch?v=' + v.id +
+          '" target="_blank" rel="noopener" style="text-decoration:none;">' +
+          '<div class="ph short navy-bg" style="background-image:url(\'https://i.ytimg.com/vi/' +
+          v.id + '/hqdefault.jpg\'); background-size:cover; background-position:center;"></div>' +
+          '<div class="pad"><span class="meta">' + dateStr + ' · ' + kind + '</span>' +
+          '<h3 style="font-size:1.02rem;">' + v.title + '</h3></div></a>';
+      }).join('');
+    }).catch(function () { /* static fallback cards remain */ });
+  }
 
   /* ---------- generic image slots: any element with data-img swaps in its
      photo automatically once the file exists (placeholder shows until then) */
