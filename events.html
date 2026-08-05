@@ -126,7 +126,14 @@
           <a class="btn outline-light" href="https://www.instagram.com/collideexperience" target="_blank" rel="noopener">Follow Collide</a>
         </div>
       </div>
-      <div class="ph navy-bg"><span class="label">Photo · Collide worship night, lights, crowd</span></div>
+      <div class="ph navy-bg" data-img="images/collide-block.jpg" style="position:relative; overflow:hidden;">
+        <video autoplay muted loop playsinline preload="metadata"
+               style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+               onplaying="if(this.nextElementSibling)this.nextElementSibling.style.display='none'">
+          <source src="videos/collide.mp4" type="video/mp4">
+        </video>
+        <span class="label">Video/photo · Collide worship night, lights, crowd</span>
+      </div>
     </div>
   </div>
 </section>
@@ -135,7 +142,7 @@
 <section class="tight" id="brilliance">
   <div class="wrap">
     <div class="brand-block brilliance">
-      <div class="ph rose-bg"><span class="label">Photo · Brilliance conference, speakers, community</span></div>
+      <div class="ph rose-bg" data-img="images/brilliance-block.jpg"><span class="label">Photo · Brilliance conference, speakers, community</span></div>
       <div class="content">
         <span class="tag">A ministry of The Gathering Place · @iambrillianceemerge</span>
         <h2>Brilliance Emerge</h2>
@@ -234,5 +241,6 @@
   <a class="a2" href="give.html">Give</a>
 </div>
 
+<script src="js/next-gathering.js" defer></script>
 </body>
 </html>

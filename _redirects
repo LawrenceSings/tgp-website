@@ -1,0 +1,2 @@
+# Proxy the Planning Center calendar feed so the site can read it same-origin
+/calendar.ics https://calendar.planningcenteronline.com/icals/eJxj4ajmsGLLz2TOt2G04kotzi8oqWa34khOzPFU4rIwMrMwYrNicw2xYivNZL59yNKKuyCxKDG3uJoBAJSfD1M=5fe8287487319b6325bed43930ead9639a28cc55 200
