@@ -343,6 +343,7 @@ header.site {
 }
 .rhythm .name { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.05rem; color: var(--navy); }
 .rhythm .what { font-size: 0.82rem; margin-top: 8px; }
+.rhythm .ricon { height: 54px; width: auto; margin: 14px auto 4px; display: block; }
 
 /* ---------- FAQ ---------- */
 details.faq {

@@ -49,7 +49,7 @@
   <div class="wrap split" style="align-items:start;">
     <div class="form-card">
       <h3 style="margin-bottom:18px;">Send a message</h3>
-      <form class="std" onsubmit="return false;">
+      <form class="std" id="contact-form">
         <div class="field">
           <label for="c-name">Name</label>
           <input id="c-name" type="text" placeholder="Your name">
@@ -75,7 +75,7 @@
           <textarea id="c-msg" rows="5" placeholder="What's on your mind?"></textarea>
         </div>
         <button class="btn gold" type="submit" style="border:0; cursor:pointer;">Send Message</button>
-        <p style="font-size:0.78rem; color:#8a99a3;">The dropdown routes your message to the right inbox, so the right person sees it first.</p>
+        <p style="font-size:0.78rem; color:#8a99a3;">Sending opens your email app, addressed to the right team so the right person sees it first.</p>
       </form>
     </div>
     <div>
@@ -83,9 +83,8 @@
       <h2 style="font-size:1.9rem;">Reach the Right Person</h2>
       <ul style="margin:22px 0 0; list-style:none; display:grid; gap:14px; font-size:0.95rem;">
         <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">General</strong> — <a href="mailto:info@thegatheringplacemn.org" style="color:#C38A84; font-weight:700;">info@thegatheringplacemn.org</a></li>
-        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Giving</strong> — [giving@ email TBD]</li>
-        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Events</strong> — [events@ email TBD]</li>
-        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Prayer</strong> — <a href="connect.html#pray" style="color:#C38A84; font-weight:700;">prayer request form</a></li>
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Events</strong> — <a href="mailto:comms@thegatheringplacemn.org" style="color:#C38A84; font-weight:700;">comms@thegatheringplacemn.org</a></li>
+        <li style="background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 10px 30px rgba(23,42,58,0.08);"><strong style="color:#172A3A;">Prayer</strong> — <a href="https://tgpmn.churchcenter.com/people/forms/829987" target="_blank" rel="noopener" style="color:#C38A84; font-weight:700;">prayer request form</a></li>
       </ul>
       <div style="margin-top:30px;">
         <h3 style="font-size:1.05rem; margin-bottom:8px;">Mailing address</h3>
@@ -156,6 +155,27 @@
   <a class="a2" href="give.html">Give</a>
 </div>
 
-<script src="js/next-gathering.js" defer></script>
+<script src="js/next-gathering.js?v=3" defer></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var routes = {
+    'General question': 'info@thegatheringplacemn.org',
+    'Planning a visit': 'info@thegatheringplacemn.org',
+    'Prayer request': 'collidexp@gmail.com',
+    'Giving': 'admin@thegatheringplacemn.org',
+    'Events / Collide / Brilliance': 'comms@thegatheringplacemn.org',
+    'Serving & volunteering': 'comms@thegatheringplacemn.org',
+    'Media / press': 'comms@thegatheringplacemn.org'
+  };
+  var topic = document.getElementById('c-topic').value;
+  var name = document.getElementById('c-name').value.trim();
+  var msg = document.getElementById('c-msg').value.trim();
+  var to = routes[topic] || 'info@thegatheringplacemn.org';
+  location.href = 'mailto:' + to +
+    '?subject=' + encodeURIComponent('TGP website — ' + topic) +
+    '&body=' + encodeURIComponent(msg + (name ? '\n\n— ' + name : ''));
+});
+</script>
 </body>
 </html>

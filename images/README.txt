@@ -18,6 +18,12 @@ Homepage "This Sunday" highlight — 1200 x 900 px (4:3):
   card-gather-grow.jpg
   card-collide.jpg
 
+Sundays page gathering-card strips — 1200 x 450 px (wide):
+  sunday-first-fellowship.jpg
+  sunday-grow-home.jpg
+  sunday-tgp-live.jpg
+  sunday-fifth-table.jpg
+
 Events page ministry blocks — 1200 x 800 px (3:2):
   collide-block.jpg      (also the fallback when the Collide video is absent)
   brilliance-block.jpg

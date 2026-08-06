@@ -343,7 +343,7 @@
     var pre = new Image();
     pre.onload = function () {
       el.style.backgroundImage = 'url("' + el.getAttribute('data-img') + '")';
-      el.style.backgroundSize = 'cover';
+      if (!el.style.backgroundSize) el.style.backgroundSize = 'cover';
       el.style.backgroundPosition = 'center';
       var lbl = el.querySelector('.label');
       if (lbl) lbl.style.display = 'none';
