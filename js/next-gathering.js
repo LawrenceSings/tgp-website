@@ -10,7 +10,10 @@
      images/hero-first-fellowship.jpg   big "This Sunday" photo (~1200px wide)
      images/card-first-fellowship.jpg   smaller upcoming-card photo (~800px wide)
      ...same pattern: hero-/card- + grow-home, tgp-live, fifth-table,
-     and card-gather-grow.jpg, card-collide.jpg for non-Sunday events. */
+     and card-gather-grow.jpg, card-collide.jpg for non-Sunday events.
+     Grow Home happens twice a month, so it alternates between two photos:
+     hero-grow-home.jpg / card-grow-home.jpg on the 2nd Sunday and
+     hero-grow-home-2.jpg / card-grow-home-2.jpg on the 4th. */
 
 (function () {
   var MONTHS = ['January','February','March','April','May','June',
@@ -73,6 +76,12 @@
     return 'other';
   }
 
+  // Grow Home meets on the 2nd and 4th weekends — alternate the two photos
+  // so both never show the same image at once ('' → photo 1, '-2' → photo 2)
+  function growHomeSuffix(slug, date) {
+    return slug === 'grow-home' && date && Math.ceil(date.getDate() / 7) >= 4 ? '-2' : '';
+  }
+
   function fmtTime(h, m) {
     var ap = h >= 12 ? 'PM' : 'AM';
     var hr = h % 12 || 12;
@@ -111,15 +120,16 @@
   // hero photo: use images/hero-<type>.jpg when the file exists
   var photoBox = document.getElementById('ts-photo');
   if (photoBox) {
+    var heroFile = 'images/hero-' + slug + growHomeSuffix(slug, sunday) + '.jpg';
     var heroImg = new Image();
     heroImg.onload = function () {
-      photoBox.style.backgroundImage = 'url("images/hero-' + slug + '.jpg")';
+      photoBox.style.backgroundImage = 'url("' + heroFile + '")';
       photoBox.style.backgroundSize = 'cover';
       photoBox.style.backgroundPosition = 'center';
       var lbl = photoBox.querySelector('.label');
       if (lbl) lbl.style.display = 'none';
     };
-    heroImg.src = 'images/hero-' + slug + '.jpg';
+    heroImg.src = heroFile;
   }
 
   /* ---------- footer "Next Gathering" (every page) ---------- */
@@ -128,13 +138,33 @@
                   dateStr + (slug === 'fifth-table' ? '' : ' · 12:30 PM') + '<br>' + cfg.footWhere;
   });
 
-  /* ---------- "What's Coming Up" cards ---------- */
+  /* ---------- "What's Coming Up" cards — every event type, next 6,
+     in a single row that slides sideways (arrow buttons + touch scroll) ---------- */
   var grid = document.getElementById('upcoming-cards');
+  var prevBtn = document.getElementById('cards-prev');
+  var nextBtn = document.getElementById('cards-next');
+
+  function updateArrows() {
+    if (!grid || !prevBtn) return;
+    prevBtn.disabled = grid.scrollLeft < 10;
+    nextBtn.disabled = grid.scrollLeft > grid.scrollWidth - grid.clientWidth - 10;
+  }
+  if (grid && prevBtn) {
+    prevBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: -grid.clientWidth, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: grid.clientWidth, behavior: 'smooth' });
+    });
+    grid.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+  }
 
   function renderCards(events) {
     if (!grid) return;
     grid.innerHTML = '';
-    events.slice(0, 3).forEach(function (ev) {
+    events.slice(0, 6).forEach(function (ev) {
       var m = META[ev.slug];
       var card = document.createElement('div');
       card.className = 'card';
@@ -142,35 +172,50 @@
         '<div class="ph short ' + m.bg + '"></div>' +
         '<div class="pad">' +
           '<span class="meta">' + ev.meta + '</span>' +
-          '<h3>' + m.name + '</h3>' +
+          '<h3>' + (m.name || ev.name) + '</h3>' +
           '<p>' + (ev.desc || m.desc) + '</p>' +
           '<a class="text-link" href="' + m.link + '">Details →</a>' +
         '</div>';
       var ph = card.querySelector('.ph');
+      var cardFile = 'images/card-' + ev.slug + growHomeSuffix(ev.slug, ev.date) + '.jpg';
       var img = new Image();
       img.onload = function () {
-        ph.style.backgroundImage = 'url("images/card-' + ev.slug + '.jpg")';
+        ph.style.backgroundImage = 'url("' + cardFile + '")';
         ph.style.backgroundSize = 'cover';
         ph.style.backgroundPosition = 'center';
       };
-      img.src = 'images/card-' + ev.slug + '.jpg';
+      img.src = cardFile;
       grid.appendChild(card);
     });
+    grid.scrollLeft = 0;
+    updateArrows();
   }
 
-  // Fallback: the next three Sundays, straight from the rhythm
+  // Fallback when the calendar feed is unreachable: the next five Sundays from
+  // the rhythm plus the next Gather + Grow (first Saturday), in date order
   function rhythmCards() {
     var list = [];
     var d = new Date(sunday);
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 5; i++) {
       var s = sundaySlug(d);
       list.push({
-        slug: s,
+        slug: s, date: new Date(d),
         meta: 'Sun · ' + MONTHS[d.getMonth()].slice(0, 3) + ' ' + d.getDate() +
               (s === 'fifth-table' ? '' : ' · 12:30 PM')
       });
       d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 7);
     }
+    var gg = new Date(now.getFullYear(), now.getMonth(), 1);
+    while (gg.getDay() !== 6) gg.setDate(gg.getDate() + 1);
+    if (gg < new Date(now.getFullYear(), now.getMonth(), now.getDate())) {
+      gg = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+      while (gg.getDay() !== 6) gg.setDate(gg.getDate() + 1);
+    }
+    list.push({
+      slug: 'gather-grow', date: gg,
+      meta: 'Sat · ' + MONTHS[gg.getMonth()].slice(0, 3) + ' ' + gg.getDate() + ' · 9:15 AM'
+    });
+    list.sort(function (a, b) { return a.date - b.date; });
     return list;
   }
   renderCards(rhythmCards());
