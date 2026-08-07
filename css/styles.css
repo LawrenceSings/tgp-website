@@ -571,3 +571,10 @@ footer.site button {
   .card-scroller .scroll-row .card { flex-basis: 86%; }
   .scroll-btn { display: none; }
 }
+
+/* The Church Center giving embed needs ~360px of width to lay out properly —
+   on narrow phones hide it and let the gold button carry people to the
+   mobile-optimized Church Center page instead */
+@media (max-width: 700px) {
+  .give-embed { display: none; }
+}
