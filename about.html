@@ -100,45 +100,50 @@
       <p style="font-size:0.9rem; color:#8a99a3;">Draft note: people genuinely look for this page before visiting — its absence is noticed. This needs to come from leadership; it's not content anyone can draft on your behalf.</p>
       <a class="btn outline" href="#" style="margin-top:16px;">Read the Full Statement</a>
     </div>
-    <div class="ph"><span class="label">Photo · worship / prayer moment</span></div>
+    <!-- Click-to-play video: paste the YouTube video ID (the part after watch?v=) into
+         data-youtube-id below and the panel becomes a player. Empty = photo placeholder. -->
+    <div class="ph" id="believe-video" data-youtube-id=""><span class="label">Video · what we believe, from leadership</span></div>
   </div>
 </section>
+<script>
+(function () {
+  var box = document.getElementById('believe-video');
+  var id = box.getAttribute('data-youtube-id');
+  if (!id) return;
+  box.classList.add('video-ready');
+  box.style.background = '#10202d url(https://img.youtube.com/vi/' + id + '/hqdefault.jpg) center/cover no-repeat';
+  box.style.aspectRatio = '16 / 9';
+  box.setAttribute('role', 'button');
+  box.setAttribute('tabindex', '0');
+  box.setAttribute('aria-label', 'Play video: what we believe');
+  box.innerHTML = '<span class="play"><svg width="26" height="30" viewBox="0 0 26 30" fill="none"><path d="M25 15 1 29V1l24 14Z" fill="#E1AB65"/></svg></span>';
+  function play() {
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" ' +
+      'title="What we believe — The Gathering Place" ' +
+      'style="position:absolute; inset:0; width:100%; height:100%; border:0;" ' +
+      'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    box.removeAttribute('role'); box.removeAttribute('tabindex'); box.classList.remove('video-ready');
+    box.style.cursor = 'default';
+  }
+  box.addEventListener('click', play, { once: true });
+  box.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+  });
+})();
+</script>
 
 <!-- Leadership -->
-<section class="tight" style="background:#fff;">
+<section class="tight" id="leadership" style="background:#fff;">
   <div class="wrap">
     <div class="section-head center">
       <span class="kicker">Leadership</span>
       <h2>The Faces Behind TGP</h2>
       <p style="margin-top:10px;">Trust is built by real people, not mission statements.</p>
     </div>
-    <div class="grid c3">
-      <div class="card team-card">
-        <div class="ph"><span class="label">Photo · consistent crop &amp; lighting</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">Lead Pastor / Founder</span>
-          <p style="font-size:0.9rem;">[Two-line bio — who they are beyond the title.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph rose-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph gold-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
+    <div class="ph" data-img="images/leadership-group.jpg" style="min-height:420px;"><span class="label">Photo · the whole leadership team together</span></div>
+    <div class="btn-row" style="justify-content:center; margin-top:34px;">
+      <a class="btn navy" href="leadership.html">Meet the Faces Behind TGP →</a>
     </div>
-    <p class="note-draft" style="max-width:720px; margin:30px auto 0;">Draft note: photography consistency matters more than photography quality here — same background, same crop, same lighting for every team photo.</p>
   </div>
 </section>
 
