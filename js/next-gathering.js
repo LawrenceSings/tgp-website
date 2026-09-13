@@ -292,6 +292,57 @@
     }
   }
 
+
+  /* ---------- sundays-page "This month at a glance": current month's rhythm
+     computed from the pattern, plus any feed specials landing this month.
+     Renders immediately (no feed needed); re-renders with specials when
+     the feed arrives. Static HTML underneath is the evergreen no-JS fallback. */
+  function renderMonthGlance(feedEvents) {
+    var glanceEl = document.getElementById('month-glance');
+    if (!glanceEl) return;
+    var y = now.getFullYear(), m = now.getMonth(), mon = MONTHS[m].slice(0, 3);
+    var titleEl = document.getElementById('month-title');
+    if (titleEl) titleEl.textContent = MONTHS[m] + ' ' + y;
+    var cells = [];
+    var d = new Date(y, m, 1);
+    while (d.getDay() !== 0) d.setDate(d.getDate() + 1);
+    while (d.getMonth() === m) {
+      var s = sundaySlug(d);
+      if (s === 'grow-home') {
+        var sat = new Date(y, m, d.getDate() - 1);
+        cells.push({ sort: +d,
+          head: sat.getMonth() === m ? mon + ' ' + sat.getDate() + '\u2013' + d.getDate() : mon + ' ' + d.getDate(),
+          body: 'Grow Home Weekend<br>Living rooms citywide' });
+      } else if (s === 'first-fellowship') {
+        cells.push({ sort: +d, head: 'Sun ' + mon + ' ' + d.getDate(),
+          body: 'First Fellowship \u00b7 12:30 PM<br><a href="events.html#calendar" style="color:#E1AB65;">See calendar for location</a>' });
+      } else if (s === 'tgp-live') {
+        cells.push({ sort: +d, head: 'Sun ' + mon + ' ' + d.getDate(),
+          body: 'TGP LIVE \u00b7 12:30 PM<br>In person + online' });
+      } else {
+        cells.push({ sort: +d, head: 'Sun ' + mon + ' ' + d.getDate(),
+          body: 'The Fifth Table \u00b7 Digital Sabbath<br>Wherever you are' });
+      }
+      d = new Date(y, m, d.getDate() + 7);
+    }
+    var SUNDAY_RHYTHM = { 'first-fellowship': 1, 'grow-home': 1, 'tgp-live': 1, 'fifth-table': 1 };
+    (feedEvents || []).forEach(function (ev) {
+      if (ev.date.getFullYear() !== y || ev.date.getMonth() !== m) return;
+      if (SUNDAY_RHYTHM[ev.slug]) return;
+      var nm = (META[ev.slug] && META[ev.slug].name) || ev.name;
+      cells.push({ sort: +ev.date, head: DAYS[ev.date.getDay()] + ' ' + mon + ' ' + ev.date.getDate(),
+        body: nm + (ev.time ? ' \u00b7 ' + ev.time : '') });
+    });
+    cells.sort(function (a, b) { return a.sort - b.sort; });
+    var accents = ['#E1AB65', '#7D949A', '#fff'];
+    glanceEl.innerHTML = cells.slice(0, 8).map(function (c, i) {
+      return '<div style="border-left:3px solid ' + accents[i % 3] + '; padding-left:18px;">' +
+        '<strong style="color:#E1AB65;">' + c.head + '</strong>' +
+        '<p style="margin:4px 0;">' + c.body + '</p></div>';
+    }).join('');
+  }
+  renderMonthGlance([]);
+
   /* ---------- live calendar feed (works on the deployed site) ---------- */
   fetch('/calendar.ics').then(function (r) {
     if (!r.ok) throw new Error('feed unavailable');
@@ -335,6 +386,7 @@
     events.sort(function (a, b) { return a.stamp < b.stamp ? -1 : 1; });
     if (events.length >= 2) renderCards(events);
     renderEventLists(events);
+    renderMonthGlance(events);
 
     // exact First Fellowship location for the This Sunday block
     if (slug === 'first-fellowship') {
@@ -389,7 +441,7 @@
     pre.onload = function () {
       el.style.backgroundImage = 'url("' + el.getAttribute('data-img') + '")';
       if (!el.style.backgroundSize) el.style.backgroundSize = 'cover';
-      el.style.backgroundPosition = 'center';
+      if (!el.style.backgroundPosition) el.style.backgroundPosition = 'center';
       var lbl = el.querySelector('.label');
       if (lbl) lbl.style.display = 'none';
     };

@@ -20,7 +20,7 @@
 <header class="site">
   <nav class="nav">
     <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
-      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:70px; width:auto;">
     </a>
     <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -58,9 +58,9 @@
       <h2>The Pastoral Team</h2>
       <p style="margin-top:10px;">Trust is built by real people, not mission statements.</p>
     </div>
-    <div class="team-grid">
+    <div class="team-grid two-col">
       <div class="card team-card">
-        <div class="ph"><span class="label">Photo · consistent crop &amp; lighting</span></div>
+        <div class="ph" data-img="images/team-lawrence-miles.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
         <div class="pad">
           <h3>Pastor Lawrence Miles</h3>
           <span class="role">Lead Pastor</span>
@@ -68,7 +68,15 @@
         </div>
       </div>
       <div class="card team-card">
-        <div class="ph rose-bg"><span class="label">Photo</span></div>
+        <div class="ph rose-bg" data-img="images/team-faith-brandon.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
+        <div class="pad">
+          <h3>Pastor Faith Brandon</h3>
+          <span class="role">[Role — confirm]</span>
+          <p style="font-size:0.9rem;">[Bio.]</p>
+        </div>
+      </div>
+      <div class="card team-card">
+        <div class="ph gold-bg" data-img="images/team-angela-fronsoe.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
         <div class="pad">
           <h3>Pastor Angela Fronsoe</h3>
           <span class="role">[Role — confirm]</span>
@@ -76,26 +84,10 @@
         </div>
       </div>
       <div class="card team-card">
-        <div class="ph gold-bg"><span class="label">Photo</span></div>
+        <div class="ph navy-bg" data-img="images/team-marcus-jeanette-rupert.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
         <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph navy-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
+          <h3>Pastors Marcus &amp; Jeanette Rupert</h3>
+          <span class="role">[Role — confirm]</span>
           <p style="font-size:0.9rem;">[Bio.]</p>
         </div>
       </div>
@@ -109,53 +101,21 @@
     <div class="section-head center">
       <span class="kicker">Leadership team</span>
       <h2>Serving Behind the Scenes</h2>
-      <p style="margin-top:10px;">[PLACEHOLDER — one or two warm lines about this team: who they are collectively and how they serve the church week to week.]</p>
+      <p style="margin-top:10px;">Not every leader stands on a stage. These are the people who make TGP run week to week, setting up early, staying late, and serving so everyone else can simply come home.</p>
     </div>
-    <div class="grid c3">
+    <div class="team-grid">
       <div class="card team-card">
-        <div class="ph"><span class="label">Photo · consistent crop &amp; lighting</span></div>
+        <div class="ph" data-img="images/team-liz-fronsoe.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
         <div class="pad">
-          <h3>[Name]</h3>
+          <h3>Liz Fronsoe</h3>
           <span class="role">[Role]</span>
           <p style="font-size:0.9rem;">[Two-line bio — who they are beyond the title.]</p>
         </div>
       </div>
       <div class="card team-card">
-        <div class="ph rose-bg"><span class="label">Photo</span></div>
+        <div class="ph rose-bg" data-img="images/team-joanne-austin.jpg" style="background-position:center top;"><span class="label">Photo</span></div>
         <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph gold-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph navy-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
-          <span class="role">[Role]</span>
-          <p style="font-size:0.9rem;">[Two-line bio.]</p>
-        </div>
-      </div>
-      <div class="card team-card">
-        <div class="ph rose-bg"><span class="label">Photo</span></div>
-        <div class="pad">
-          <h3>[Name]</h3>
+          <h3>JoAnne Austin</h3>
           <span class="role">[Role]</span>
           <p style="font-size:0.9rem;">[Two-line bio.]</p>
         </div>
@@ -218,7 +178,7 @@
     </div>
     <div class="footer-legal">
       <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
-      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · A 501(c)(3) nonprofit</span>
     </div>
   </div>
 </footer>
@@ -228,6 +188,6 @@
   <a class="a2" href="give.html">Give</a>
 </div>
 
-<script src="js/next-gathering.js?v=3" defer></script>
+<script src="js/next-gathering.js?v=5" defer></script>
 </body>
 </html>

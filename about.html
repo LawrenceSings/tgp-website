@@ -20,7 +20,7 @@
 <header class="site">
   <nav class="nav">
     <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
-      <img src="logo-navy.png" alt="The Gathering Place" style="height:54px; width:auto;">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:70px; width:auto;">
     </a>
     <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -53,12 +53,12 @@
 <!-- Our story -->
 <section>
   <div class="wrap split">
-    <div class="ph tall rose-bg"><span class="label">Photo · founders / early gathering</span></div>
+    <div class="ph tall rose-bg" data-img="images/our-story.jpg"><span class="label">Photo</span></div>
     <div>
       <span class="kicker">Our story</span>
       <h2>Why TGP Exists</h2>
-      <p style="margin:18px 0;">[PLACEHOLDER — the founding story belongs here, told by the people who lived it: what stirred this, when it started, and what you saw God do first. Two or three honest paragraphs beat a polished mission statement.]</p>
-      <p>What we can say already: TGP is built on the picture of the early church in Acts 2 — people gathered around tables, growing together, and going out to their neighbors.</p>
+      <p style="margin:18px 0;">The Gathering Place was born out of a single step of obedience in May 2021, a small prayer and worship night that quietly grew into something none of us could have planned. People from across the Twin Cities began showing up, finding Jesus, discovering purpose, and building community in a space that felt different from anything they had experienced before. Freedom, healing, and the presence of God became our new normal and we knew there was more.</p>
+      <p>We exist for everyone who has ever felt like there had to be more, and there is! At TGP, we call it <em>Zoe</em>: the divine, resurrection life of Jesus Christ living and breathing within every believer. We believe that when people awaken to that truth, the divides that separate us lose their power, and something greater takes root. Our vision is to create space for everyone, everywhere to <strong>Gather</strong> in community, <strong>Grow</strong> in relationship with Jesus and each other, and <strong>Go</strong> share that with someone else.</p>
     </div>
   </div>
 </section>
@@ -91,18 +91,32 @@
 </section>
 
 <!-- Beliefs summary -->
-<section>
+<section style="padding-bottom:56px;">
   <div class="wrap split">
     <div>
       <span class="kicker">What we believe</span>
       <h2>The Short Version</h2>
-      <p style="margin:18px 0;">[PLACEHOLDER — a 4–6 line summary of the statement of faith, written by leadership. The full statement gets its own page at /about/beliefs.]</p>
-      <p style="font-size:0.9rem; color:#8a99a3;">Draft note: people genuinely look for this page before visiting — its absence is noticed. This needs to come from leadership; it's not content anyone can draft on your behalf.</p>
-      <a class="btn outline" href="#" style="margin-top:16px;">Read the Full Statement</a>
+      <p style="margin:18px 0;">We believe in one God — Father, Son, and Holy Spirit — and that the Bible is God&rsquo;s inspired, infallible, authoritative Word. We believe Jesus is exactly who He said He is: born of a virgin, sinless, crucified for us, risen, seated with the Father, and coming back in power and glory.</p>
+      <p style="margin:18px 0;">And we believe the church isn&rsquo;t a building — it&rsquo;s a people, equipped and empowered to <strong>gather</strong> in real community, <strong>grow</strong> into purpose, and <strong>go</strong> carry Christ&rsquo;s love to our city.</p>
+      <a class="btn outline" href="beliefs.html" style="margin-top:16px;">Read the Full Statement</a>
     </div>
-    <!-- Click-to-play video: paste the YouTube video ID (the part after watch?v=) into
-         data-youtube-id below and the panel becomes a player. Empty = photo placeholder. -->
-    <div class="ph" id="believe-video" data-youtube-id=""><span class="label">Video · what we believe, from leadership</span></div>
+    <!-- Shows the culture codes graphic. If leadership ever records a "what we believe"
+         video, paste its YouTube ID into data-youtube-id AND remove the data-img attribute —
+         the panel then becomes a click-to-play player instead. -->
+    <div class="ph" id="believe-video" data-youtube-id="" data-img="images/culture-codes.png" style="aspect-ratio:24/17; min-height:0;"><span class="label">Our culture codes</span></div>
+  </div>
+</section>
+
+<!-- Culture codes callout -->
+<section class="tight" style="padding-top:0;">
+  <div class="wrap">
+    <div style="background:linear-gradient(120deg, var(--rose) 0%, #b07d77 100%); border-radius:var(--radius); padding:44px 40px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="max-width:620px;">
+        <h2 style="color:#fff;">See it lived out.</h2>
+        <p style="color:#f4e5e3; margin:10px 0 0;">This is what it looks like to gather, grow, and go together. Nine codes, nine short videos.</p>
+      </div>
+      <a class="btn navy" href="beliefs.html#culture-codes">Discover our 9 Culture Codes →</a>
+    </div>
   </div>
 </section>
 <script>
@@ -140,7 +154,7 @@
       <h2>The Faces Behind TGP</h2>
       <p style="margin-top:10px;">Trust is built by real people, not mission statements.</p>
     </div>
-    <div class="ph" data-img="images/leadership-group.jpg" style="min-height:420px;"><span class="label">Photo · the whole leadership team together</span></div>
+    <div class="ph" data-img="images/leadership-group.jpg" style="aspect-ratio:2400/890; min-height:0;"><span class="label">Photo · the whole leadership team together</span></div>
     <div class="btn-row" style="justify-content:center; margin-top:34px;">
       <a class="btn navy" href="leadership.html">Meet the Faces Behind TGP →</a>
     </div>
@@ -234,7 +248,7 @@
     </div>
     <div class="footer-legal">
       <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
-      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · A 501(c)(3) nonprofit</span>
     </div>
   </div>
 </footer>
@@ -244,6 +258,6 @@
   <a class="a2" href="give.html">Give</a>
 </div>
 
-<script src="js/next-gathering.js?v=3" defer></script>
+<script src="js/next-gathering.js?v=5" defer></script>
 </body>
 </html>

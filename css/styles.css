@@ -103,7 +103,7 @@ header.site {
 }
 .nav {
   max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
-  display: flex; align-items: center; gap: 28px; height: 76px;
+  display: flex; align-items: center; gap: 28px; height: 92px;
 }
 .brand {
   display: flex; align-items: center; gap: 12px;
@@ -474,6 +474,8 @@ form.std .check input { width: auto; margin-top: 4px; }
 /* ---------- team ---------- */
 .team-grid { display: flex; flex-wrap: wrap; gap: 26px; justify-content: center; }
 .team-grid .team-card { flex: 0 1 calc((100% - 52px) / 3); min-width: 250px; }
+.team-grid.two-col .team-card { flex-basis: calc((100% - 26px) / 2); max-width: 420px; }
+.team-grid.two-col .team-card .ph { aspect-ratio: 6 / 5; min-height: 0; }
 .team-card { text-align: center; }
 .team-card .ph { min-height: 300px; border-radius: var(--radius) var(--radius) 0 0; }
 .team-card .pad { padding: 22px; }
@@ -570,14 +572,14 @@ footer.site button {
   .nav .links { display: none; }
   .nav .links.open {
     display: flex; flex-direction: column; align-items: flex-start;
-    position: absolute; top: 76px; left: 0; right: 0;
+    position: absolute; top: 92px; left: 0; right: 0;
     background: var(--paper); padding: 24px; gap: 18px;
     box-shadow: var(--shadow-lg);
   }
   .hamburger { display: block; }
   .nav .btn-give.desktop { display: none; }
   .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: 1fr; }
-  .team-grid .team-card { flex-basis: 100%; }
+  .team-grid .team-card, .team-grid.two-col .team-card { flex-basis: 100%; max-width: none; }
   .pillars { grid-template-columns: 1fr; }
   .rhythm { grid-template-columns: 1fr; }
   footer.site .cols { grid-template-columns: 1fr; }
