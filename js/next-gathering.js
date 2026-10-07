@@ -414,10 +414,10 @@
      proxied at /youtube.xml via Netlify ---------- */
   var ytGrid = document.getElementById('yt-archive');
   if (ytGrid) {
-    fetch('/youtube.xml').then(function (r) {
-      if (!r.ok) throw new Error('yt feed unavailable');
-      return r.text();
-    }).then(function (xml) {
+    // YouTube's RSS endpoint rejects roughly half of all proxied fetches, so:
+    // retry a few times, keep the last good copy in localStorage, and if
+    // nothing works hide the section rather than show placeholder cards.
+    var renderYt = function (xml) {
       var entries = [];
       xml.split('<entry>').slice(1).forEach(function (e) {
         var id = (e.match(/<yt:videoId>([^<]+)/) || [])[1];
@@ -425,7 +425,7 @@
         var pub = e.match(/<published>(\d{4})-(\d{2})-(\d{2})/) || [];
         if (id && title) entries.push({ id: id, title: title, y: pub[1], m: pub[2], d: pub[3] });
       });
-      if (!entries.length) return;
+      if (!entries.length) return false;
       ytGrid.innerHTML = entries.slice(0, 6).map(function (v) {
         var dateStr = v.m ? MONTHS[+v.m - 1].slice(0, 3) + ' ' + (+v.d) + ', ' + v.y : '';
         var kind = /petition/i.test(v.title) ? 'Petition' :
@@ -437,7 +437,31 @@
           '<div class="pad"><span class="meta">' + dateStr + ' · ' + kind + '</span>' +
           '<h3 style="font-size:1.02rem;">' + v.title + '</h3></div></a>';
       }).join('');
-    }).catch(function () { /* static fallback cards remain */ });
+      return true;
+    };
+    var ytTries = 0;
+    var ytDone = false;
+    var ytAttempt = function () {
+      fetch('/youtube.xml').then(function (r) {
+        if (!r.ok) throw new Error('yt feed unavailable');
+        return r.text();
+      }).then(function (xml) {
+        if (!renderYt(xml)) throw new Error('yt feed empty');
+        ytDone = true;
+        try { localStorage.setItem('tgp-yt-feed', xml); } catch (e) {}
+      }).catch(function () {
+        ytTries += 1;
+        if (ytTries < 5) { setTimeout(ytAttempt, 700 * ytTries); return; }
+        // all retries failed — fall back to the last good copy, else hide
+        var cached = null;
+        try { cached = localStorage.getItem('tgp-yt-feed'); } catch (e) {}
+        if (!(cached && renderYt(cached))) {
+          var sec = ytGrid.closest('section');
+          if (sec) sec.style.display = 'none';
+        }
+      });
+    };
+    ytAttempt();
   }
 
   /* ---------- generic image slots: any element with data-img swaps in its
