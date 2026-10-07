@@ -63,6 +63,11 @@
       desc: 'A night of unfiltered worship — where heaven and earth collide.',
       link: 'events.html#collide'
     },
+    'threshold': {
+      name: 'Threshold Prayer Night', sub: 'Return Series', bg: 'navy-bg',
+      desc: 'An hour of prayer, then community and food. The Wednesday fast breaks at the table.',
+      link: 'threshold.html'
+    },
     'other': { name: '', sub: '', bg: '', desc: '', link: 'events.html' }
   };
 
@@ -73,6 +78,7 @@
     if (/fifth/i.test(name)) return 'fifth-table';
     if (/gather.*grow|bible/i.test(name)) return 'gather-grow';
     if (/collide/i.test(name)) return 'collide';
+    if (/threshold/i.test(name)) return 'threshold';
     return 'other';
   }
 
