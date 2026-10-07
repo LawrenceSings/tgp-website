@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threshold — The Gathering Place</title>
+<meta name="description" content="Threshold is a 28-day season of prayer and fasting at The Gathering Place, October 5 to November 1. A month of open doors. Pray. Fast. Show up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="icon-gold.png">
+<style>
+  /* page-local styles for the Threshold series */
+  .th-hero {
+    background: linear-gradient(rgba(13,22,31,0.50), rgba(13,22,31,0.82)),
+                url('images/threshold/hero-door.jpg') center 35% / cover no-repeat;
+  }
+  .th-daypill {
+    display: inline-block; margin-top: 26px; padding: 8px 18px; border-radius: 999px;
+    background: rgba(225,171,101,0.16); border: 1px solid rgba(225,171,101,0.55);
+    color: var(--gold); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .scripture-card {
+    background: var(--navy); color: #fff; border-radius: var(--radius);
+    padding: 34px 36px; box-shadow: var(--shadow);
+  }
+  .scripture-card p.verse { color: #dbe3e8; font-size: 1.02rem; line-height: 1.7; font-style: italic; }
+  .scripture-card .ref {
+    display: block; margin-top: 16px; color: var(--gold); font-weight: 800;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .rhythm-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--radius); padding: 28px 26px;
+  }
+  .rhythm-card .when {
+    color: var(--gold); font-weight: 800; font-size: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .rhythm-card h3 { color: #fff; margin: 10px 0 10px; font-size: 1.15rem; }
+  .rhythm-card p { font-size: 0.92rem; }
+  .rhythm-card a { color: var(--gold); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+  .rhythm-card a:hover { text-decoration: underline; }
+  .week-card {
+    background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 26px 24px; border: 2px solid transparent; position: relative;
+  }
+  .week-card .wk {
+    color: var(--slate); font-weight: 800; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .week-card h3 { margin: 8px 0 4px; font-size: 1.25rem; }
+  .week-card .anchor { color: var(--gold-dark); font-weight: 700; font-size: 0.88rem; }
+  .week-card ul { list-style: none; margin-top: 14px; }
+  .week-card li { font-size: 0.86rem; padding: 3px 0; color: #4a5860; }
+  .week-card.current { border-color: var(--gold); }
+  .week-card.current::after {
+    content: 'This week'; position: absolute; top: -12px; right: 14px;
+    background: var(--gold); color: var(--navy); font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px;
+  }
+  .fast-card { background: var(--paper); border-radius: var(--radius); box-shadow: var(--shadow); padding: 26px 24px; }
+  .fast-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .fast-card p { font-size: 0.88rem; }
+  .health-note {
+    background: #f9efed; border-left: 4px solid var(--rose); border-radius: 8px;
+    padding: 22px 26px; margin-top: 30px; font-size: 0.92rem; color: #4a3c3a;
+  }
+  .daily-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px;
+  }
+  .daily-grid a.day { display: block; text-decoration: none; position: relative; }
+  .daily-grid img {
+    width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block;
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    transition: transform 0.18s ease;
+  }
+  .daily-grid a.day:hover img { transform: translateY(-4px); }
+  .daily-grid .cap {
+    margin-top: 10px; font-size: 0.85rem; font-weight: 700; color: var(--navy); text-align: center;
+  }
+  .daily-grid .today-badge {
+    position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--navy);
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 999px;
+  }
+  .quote-block {
+    max-width: 700px; margin: 0 auto 44px; text-align: center;
+    font-style: italic; color: #4a5860; line-height: 1.75;
+  }
+  .quote-block .ref { display: block; margin-top: 12px; font-style: normal; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); }
+  @media (max-width: 980px) {
+    .daily-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="index.html" aria-label="The Gathering Place — Home">
+      <img src="logo-navy.png" alt="The Gathering Place" style="height:70px; width:auto;">
+    </a>
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="links">
+      <a href="sundays.html">Sundays</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="connect.html">Connect</a>
+      <a href="watch.html">Watch</a>
+      <a class="btn-give" href="give.html">Give</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero short th-hero">
+  <div class="wrap">
+    <span class="kicker">Return Series · October 5 to November 1</span>
+    <h1>THRESHOLD<br><span class="accent">A Month of Open Doors</span></h1>
+    <p class="lede">A 28-day reset for the TGP family. We pray, we fast, and we gather around one promise: God opens doors that no one can shut.</p>
+    <div class="btn-row">
+      <a class="btn gold" href="https://slktxt.io/1htEd" target="_blank" rel="noopener">Get the Daily Prayer Text</a>
+      <a class="btn outline-light" href="#rhythm">See the Weekly Rhythm</a>
+    </div>
+    <span class="th-daypill" id="th-daypill" hidden>Day 1 of 28</span>
+  </div>
+</div>
+
+<!-- Vision -->
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="kicker">The Vision</span>
+      <h2>Set Apart. A Reset.</h2>
+      <p style="margin-top:14px;">Threshold is built on an old practice the Bible calls consecration. It simply means being set apart. Think of it as a reset. For four weeks we clear space, quiet the noise, and give God our full attention.</p>
+      <p style="margin-top:14px;">A door swings both ways. God opens the way, and we walk back through it. That is what RETURN is about: God knocks, we close what pulls us away, God turns our valleys into doors. Then we walk through, and we bring somebody with us.</p>
+    </div>
+    <div style="display:grid; gap:22px;">
+      <div class="scripture-card">
+        <p class="verse">And Joshua said to the people, "Sanctify yourselves, for tomorrow the LORD will do wonders among you."</p>
+        <span class="ref">Joshua 3:5 · NKJV</span>
+      </div>
+      <div class="scripture-card">
+        <p class="verse">"I know your works. See, I have set before you an open door, and no one can shut it; for you have a little strength, have kept My word, and have not denied My name."</p>
+        <span class="ref">Revelation 3:8 · NKJV</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Weekly rhythm -->
+<section class="band" id="rhythm">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker gold">The Weekly Rhythm</span>
+      <h2>Four Beats, Every Week</h2>
+    </div>
+    <div class="grid c4">
+      <div class="rhythm-card">
+        <span class="when">Every Morning</span>
+        <h3>The Daily Text</h3>
+        <p>A short word and a prayer land in your phone each morning, all 28 days.</p>
+        <p style="margin-top:12px;"><a href="https://slktxt.io/1htEd" target="_blank" rel="noopener">Sign up for the texts →</a></p>
+      </div>
+      <div class="rhythm-card">
+        <span class="when">Mondays · 6:30 AM</span>
+        <h3>Petition</h3>
+        <p>Our online prayer call carries the week's theme. It sets the word and points to Wednesday.</p>
+        <p style="margin-top:12px;"><a href="https://www.youtube.com/@TheGatheringPlaceGlobal" target="_blank" rel="noopener">Join via YouTube →</a></p>
+      </div>
+      <div class="rhythm-card">
+        <span class="when">Wednesdays · All Day</span>
+        <h3>Fast Day</h3>
+        <p>We fast together, each in the way that fits. One meal, daytime, Daniel-style, or a non-food fast.</p>
+        <p style="margin-top:12px;"><a href="#fast">See the fasting guide →</a></p>
+      </div>
+      <div class="rhythm-card">
+        <span class="when">Wednesdays · 6:30 PM</span>
+        <h3>The Gathering</h3>
+        <p>One hour of prayer, then one hour of community and food at Proximity Collective, 2520 N 2nd St, Minneapolis. The fast breaks at the table.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Month at a glance -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The Month at a Glance</span>
+      <h2>Four Weeks, Four Doors</h2>
+      <p style="margin-top:14px;">God knocks. We close what pulls us away. God turns our valleys into doors. Then we walk through, and we bring somebody with us.</p>
+    </div>
+    <div class="grid c4">
+      <div class="week-card" id="week-1">
+        <span class="wk">Week 1 · Oct 5 to 11</span>
+        <h3>The Knock</h3>
+        <span class="anchor">Revelation 3:20</span>
+        <ul>
+          <li>Petition · Mon, Oct 5 · 6:30 AM</li>
+          <li>Fast + Gathering · Wed, Oct 7 · 6:30 PM</li>
+        </ul>
+      </div>
+      <div class="week-card" id="week-2">
+        <span class="wk">Week 2 · Oct 12 to 18</span>
+        <h3>Closing Doors</h3>
+        <span class="anchor">Matthew 6:6</span>
+        <ul>
+          <li>Petition · Mon, Oct 12 · 6:30 AM</li>
+          <li>Fast + Gathering · Wed, Oct 14 · 6:30 PM</li>
+        </ul>
+      </div>
+      <div class="week-card" id="week-3">
+        <span class="wk">Week 3 · Oct 19 to 25</span>
+        <h3>Door of Hope</h3>
+        <span class="anchor">Hosea 2:14-15</span>
+        <ul>
+          <li>Petition · Mon, Oct 19 · 6:30 AM</li>
+          <li>Fast + Gathering · Wed, Oct 21 · 6:30 PM</li>
+        </ul>
+      </div>
+      <div class="week-card" id="week-4">
+        <span class="wk">Week 4 · Oct 26 to Nov 1</span>
+        <h3>No One Can Shut It</h3>
+        <span class="anchor">Revelation 3:8</span>
+        <ul>
+          <li>Petition · Mon, Oct 26 · 6:30 AM</li>
+          <li>Fast + Gathering · Wed, Oct 28 · 6:30 PM</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:34px; text-align:center; font-weight:700; color:var(--navy);">The month closes on Sunday, November 1. Day 28. The door stays open.</p>
+    <div class="btn-row" style="justify-content:center; margin-top:22px;">
+      <a class="btn navy" href="events.html#calendar">See These on the Calendar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Fasting guide -->
+<section class="tight" style="background:#fff;" id="fast">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="kicker">Fasting Guide</span>
+      <h2>Choose Your Fast</h2>
+      <p style="margin-top:14px;">Every Wednesday in Threshold is a fast day, and the fast breaks together at the evening gathering. Fasting doesn't earn God's attention. It's how we tell our appetites, "You don't run things. I'm returning."</p>
+    </div>
+    <div class="quote-block">
+      "Now, therefore," says the LORD, "Turn to Me with all your heart, with fasting, with weeping, and with mourning." So rend your heart, and not your garments; return to the LORD your God, for He is gracious and merciful, slow to anger, and of great kindness.
+      <span class="ref">Joel 2:12-13 · NKJV</span>
+    </div>
+    <div class="grid c4">
+      <div class="fast-card">
+        <h3>One Meal</h3>
+        <p>Skip breakfast or lunch and spend that time in prayer.</p>
+      </div>
+      <div class="fast-card">
+        <h3>Daytime Fast</h3>
+        <p>No food from sunrise until we eat together at the gathering. Water throughout.</p>
+      </div>
+      <div class="fast-card">
+        <h3>Daniel-Style Fast</h3>
+        <p>Fruits, vegetables, grains, and water only for the day.</p>
+      </div>
+      <div class="fast-card">
+        <h3>Non-Food Fast</h3>
+        <p>Social media, streaming, or another daily habit. Give that time to God.</p>
+      </div>
+    </div>
+    <div class="health-note">
+      <strong>A word on health:</strong> anyone with diabetes or another medical condition, anyone pregnant or nursing, anyone on medication, and anyone with a history of disordered eating should choose a non-food fast or talk to a doctor first. A non-food fast is a full fast. No one is second class for choosing one.
+    </div>
+    <p style="margin-top:26px; text-align:center; font-size:0.92rem; color:#4a5860;"><strong>Breaking the fast:</strong> start with lighter food at the gathering. Soup, bread, rice, fruit. Save the heavy dishes for later in the meal.</p>
+  </div>
+</section>
+
+<!-- Daily cards -->
+<section id="daily">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Day by Day</span>
+      <h2>28 Days, One Door at a Time</h2>
+      <p style="margin-top:14px;">Each morning of Threshold brings a short word and a prayer. The day's card appears here as the month unfolds. Want it first? It goes out by text at sunrise.</p>
+    </div>
+    <div class="daily-grid" id="daily-grid"></div>
+    <p id="daily-empty" style="text-align:center; color:#4a5860;" hidden>The first card arrives October 5. Check back then.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="give-band">
+  <div class="wrap">
+    <h2>Walk Through With Us</h2>
+    <p>Pray each morning. Fast on Wednesdays. Show up Wednesday night. And bring somebody with you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn navy" href="https://slktxt.io/1htEd" target="_blank" rel="noopener">Get the Daily Text</a>
+      <a class="btn outline-light" href="events.html#calendar">See the Calendar</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Next Gathering</h4>
+        <p class="next-g"><strong>First Fellowship</strong> · First Sunday<br>Aug 2 · 12:30 PM<br>Location varies — <a href="events.html#calendar" style="color:#E1AB65;">see the calendar</a></p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="sundays.html">Sundays</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="give.html">Give</a></li>
+          <li><a href="connect.html">Connect</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ministries</h4>
+        <ul>
+          <li><a href="events.html#collide">Collide Experience</a></li>
+          <li><a href="events.html#brilliance">Brilliance Emerge</a></li>
+          <li><a href="connect.html#grow-homes">Grow Homes</a></li>
+          <li><a href="connect.html#pray">Petition Prayer Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the Loop</h4>
+        <form onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button>Join</button>
+        </form>
+        <div class="social-row">
+          <a href="https://www.instagram.com/thegatheringplacemn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@TheGatheringPlaceGlobal" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.facebook.com/thegatheringplacemn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 The Gathering Place · PO Box 25856, Woodbury, MN 55125</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · A 501(c)(3) nonprofit</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="a1" href="sundays.html">This Sunday</a>
+  <a class="a2" href="give.html">Give</a>
+</div>
+
+<script>
+(function () {
+  /* ---- Threshold daily cards: push images in batches, each one reveals on its own day ----
+     To add a week's graphics: convert PNGs into images/threshold/dayNN.jpg,
+     then add one line per day below. Nothing shows before its date. */
+  var DAYS = [
+    { n: 2, date: '2026-10-06', cap: 'Day 02 · Tue, Oct 6' },
+    { n: 3, date: '2026-10-07', cap: 'Day 03 · Wed, Oct 7' },
+    { n: 4, date: '2026-10-08', cap: 'Day 04 · Thu, Oct 8' },
+    { n: 5, date: '2026-10-09', cap: 'Day 05 · Fri, Oct 9' },
+    { n: 6, date: '2026-10-10', cap: 'Day 06 · Sat, Oct 10' },
+    { n: 7, date: '2026-10-11', cap: 'Day 07 · Sun, Oct 11' }
+  ];
+
+  function localDate(iso) {
+    var p = iso.split('-');
+    return new Date(+p[0], +p[1] - 1, +p[2]);
+  }
+
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  /* Day counter pill in the hero */
+  var start = new Date(2026, 9, 5);
+  var end = new Date(2026, 10, 1);
+  var pill = document.getElementById('th-daypill');
+  var dayNum = Math.floor((today - start) / 86400000) + 1;
+  if (dayNum >= 1 && dayNum <= 28) {
+    pill.textContent = 'Day ' + dayNum + ' of 28';
+    pill.hidden = false;
+  } else if (today > end) {
+    pill.textContent = 'The door stays open';
+    pill.hidden = false;
+  }
+
+  /* Highlight the current week card */
+  if (dayNum >= 1 && dayNum <= 28) {
+    var wk = Math.min(4, Math.ceil(dayNum / 7));
+    var card = document.getElementById('week-' + wk);
+    if (card) card.classList.add('current');
+  }
+
+  /* Render released cards, newest first */
+  var grid = document.getElementById('daily-grid');
+  var released = DAYS.filter(function (d) { return localDate(d.date) <= today; });
+  released.sort(function (a, b) { return b.n - a.n; });
+  released.forEach(function (d) {
+    var nn = (d.n < 10 ? '0' : '') + d.n;
+    var a = document.createElement('a');
+    a.className = 'day';
+    a.href = 'images/threshold/day' + nn + '.jpg';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    var isToday = localDate(d.date).getTime() === today.getTime();
+    a.innerHTML =
+      '<img src="images/threshold/day' + nn + '.jpg" alt="Threshold ' + d.cap + ' daily prayer card" loading="lazy">' +
+      (isToday ? '<span class="today-badge">Today</span>' : '') +
+      '<span class="cap">' + d.cap + '</span>';
+    grid.appendChild(a);
+  });
+  if (!released.length) document.getElementById('daily-empty').hidden = false;
+})();
+</script>
+<script src="js/next-gathering.js?v=5" defer></script>
+</body>
+</html>

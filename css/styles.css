@@ -59,8 +59,8 @@ body::after {
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-section { padding: 108px 0; }
-section.tight { padding: 64px 0; }
+section { padding: 64px 0; }
+section.tight { padding: 52px 0; }
 
 /* ---------- kicker / eyebrow ---------- */
 .kicker {
@@ -544,7 +544,7 @@ footer.site button {
   margin: 18px 0;
 }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.section-head { max-width: 680px; margin-bottom: 44px; }
+.section-head { max-width: 680px; margin-bottom: 36px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
 .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .give-alloc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
