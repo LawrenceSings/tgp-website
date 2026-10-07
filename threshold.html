@@ -400,7 +400,7 @@
   /* Render released cards, newest first */
   var grid = document.getElementById('daily-grid');
   var released = DAYS.filter(function (d) { return localDate(d.date) <= today; });
-  released.sort(function (a, b) { return b.n - a.n; });
+  released.sort(function (a, b) { return a.n - b.n; });
   released.forEach(function (d) {
     var nn = (d.n < 10 ? '0' : '') + d.n;
     var a = document.createElement('a');
